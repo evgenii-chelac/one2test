@@ -4,8 +4,8 @@ anchors:
   context: &context
     filters:
       branches:
-        ignore: main
-        # only: main
+        # ignore: main
+        only: main
 
 jobs:
   playwright-tests:
