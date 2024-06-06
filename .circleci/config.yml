@@ -13,15 +13,6 @@ jobs:
       - image: mcr.microsoft.com/playwright:v1.44.1-jammy
     # Steps to the job
     steps:
-      - run:
-          name: Install npm modules
-          command: |
-            npm install
-            npm audit fix
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
       - checkout
       - run: npm i -D @playwright/test
       - run: npx playwright install
