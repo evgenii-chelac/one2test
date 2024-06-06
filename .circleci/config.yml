@@ -15,7 +15,7 @@ jobs:
       - run: npx playwright install chrome
       - run:
           name: Run test
-          command: PLAYWRIGHT_JUNIT_OUTPUT_NAME=results.xml xvfb-run npx playwright test --reporter=junit --project=chromium
+          command: xvfb-run npx playwright test
       - store_test_results:
           path: /test-results
           destination: .last-run.json
