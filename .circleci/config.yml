@@ -17,7 +17,13 @@ jobs:
           name: Run test
           command: PLAYWRIGHT_JUNIT_OUTPUT_NAME=results.xml xvfb-run npx playwright test --reporter=junit --project=chromium
       - store_test_results:
-          path: results.xml
+          path: /tmp/results.xml
+      - store_artifacts:
+          path: /tmp/art-1
+          destination: artifact-file
+      - store_artifacts:
+          path: /tmp/artifacts
+
 # Invoke jobs via workflows
 workflows:
   run-test-workflow:
