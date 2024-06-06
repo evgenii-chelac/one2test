@@ -1,33 +1,33 @@
-version: 2.1
+# version: 2.1
 
-orbs:
-  node: circleci/node@x.y
+# orbs:
+#   node: circleci/node@x.y
 
-jobs:
-  playwright-tests:
-    docker:
-      - image: cimg/base:stable
-    steps:
-      - checkout
-      - node/install:
-          install-yarn: true
-          node-version: '16.13'
-      - run: node --version 
-          name: Install npm modules 
-          command: |
-            npm install
-          name: Install playwright 
-          command: |
-            npx playwright install
-          name: Running tests 
-          command: |
-            npx playwright test
-      - store_artifacts:
-          path: reports
-      - store_test_results:
-          path: reports
-# workflows:
-#   test_my_app:
-#     jobs:
-#       - 
+# jobs:
+#   playwright-tests:
+#     docker:
+#       - image: cimg/base:stable
+#     steps:
+#       - checkout
+#       - node/install:
+#           install-yarn: true
+#           node-version: '16.13'
+#       - run: node --version 
+#           name: Install npm modules 
+#           command: |
+#             npm install
+#           name: Install playwright 
+#           command: |
+#             npx playwright install
+#           name: Running tests 
+#           command: |
+#             npx playwright test
+#       - store_artifacts:
+#           path: reports
+#       - store_test_results:
+#           path: reports
+# # workflows:
+# #   test_my_app:
+# #     jobs:
+# #       - 
 
