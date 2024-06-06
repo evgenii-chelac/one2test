@@ -19,7 +19,7 @@ jobs:
       - run: npx playwright install chrome
       - run:
           name: Run test
-          command: xvfb-run npx playwright test
+          command: xvfb-run npx playwright test --trace on
       - store_test_results:
           path: test-results
       - store_artifacts:
