@@ -14,7 +14,7 @@
 //    }
 // }
 pipeline {
-    agent any
+    agent {  docker { image 'mcr.microsoft.com/playwright:v1.44.1-jammy' } }
     environment {
         PATH = "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
     }
