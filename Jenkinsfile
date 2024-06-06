@@ -14,15 +14,14 @@
 //    }
 // }
 pipeline {
-    agent {  docker { image 'mcr.microsoft.com/playwright:v1.44.1-jammy' } }
-    environment {
-        PATH = "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
-    }
+    agent any
     stages {
-        stage('Run Docker') {
+        stage('Debug Environment') {
             steps {
                 script {
-                    sh 'docker --version'
+                    sh 'whoami'
+                    sh 'echo $PATH'
+                    sh '/usr/local/bin/docker --version'
                 }
             }
         }
