@@ -23,14 +23,13 @@ test('Check Pricing details', async ({page}) => {
 
   let heliumPricingPage = new HeliumPricingPage(page);
   await heliumPricingPage.menu.pricingButton.click();
-  await page.waitForTimeout(1000);
   await heliumPricingPage.table.productResearchRows.rowExpander.click();
 
   for(const e of await heliumPricingPage.table.productResearchRows.diamondColumn.all()) {
     expect(e).toHaveClass('far fa-check');
     console.log('Checked');
   }
-
+  await page.waitForTimeout(500);
 });
 
 // test('get started link', async ({ page }) => {
