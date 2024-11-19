@@ -16,7 +16,12 @@
   },
   "homepage": "https://github.com/batqka/one2test#readme",
   "devDependencies": {
+    "@faker-js/faker": "^9.2.0",
     "@playwright/test": "^1.44.1",
-    "@types/node": "^20.13.0"
+    "@types/node": "^20.13.0",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
   }
 }

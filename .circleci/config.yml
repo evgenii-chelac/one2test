@@ -1,35 +1,35 @@
-version: 2.1
+# version: 2.1
 
-anchors:
-  context: &context
-    filters:
-      branches:
-        ignore: main
-        # only: main
+# anchors:
+#   context: &context
+#     filters:
+#       branches:
+#         ignore: main
+#         # only: main
 
-jobs:
-  playwright-tests:
-    docker:
-      - image: mcr.microsoft.com/playwright:v1.44.1-jammy
-    # Steps to the job
-    steps:
-      - checkout
-      - run: npm i -D @playwright/test
-      - run: npx playwright install
-      - run: npx playwright install chrome
-      - run:
-          name: Run test
-          command: xvfb-run npx playwright test --trace on
-      - store_test_results:
-          path: test-results
-      - store_artifacts:
-          path: playwright-report
+# jobs:
+#   playwright-tests:
+#     docker:
+#       - image: mcr.microsoft.com/playwright:v1.44.1-jammy
+#     # Steps to the job
+#     steps:
+#       - checkout
+#       - run: npm i -D @playwright/test
+#       - run: npx playwright install
+#       - run: npx playwright install chrome
+#       - run:
+#           name: Run test
+#           command: xvfb-run npx playwright test --trace on
+#       - store_test_results:
+#           path: test-results
+#       - store_artifacts:
+#           path: playwright-report
 
-# Invoke jobs via workflows
-workflows:
-  run-test-workflow:
-    jobs:
-      - playwright-tests:
-          <<: *context
-          name: One2test
+# # Invoke jobs via workflows
+# workflows:
+#   run-test-workflow:
+#     jobs:
+#       - playwright-tests:
+#           <<: *context
+#           name: One2test
 

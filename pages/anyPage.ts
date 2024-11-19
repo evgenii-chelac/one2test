@@ -5,7 +5,7 @@ export class AnyPage {
 
     page;
 
-    constructor(page: Page) {
+    constructor(page: Page ) {
         this.page = page
     }
 
